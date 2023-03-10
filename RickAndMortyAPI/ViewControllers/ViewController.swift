@@ -9,11 +9,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    let url = "https://rickandmortyapi.com/api/character/"
+     
+    
+    @IBAction func fetchData() {
+        let randomChracter = String(Int.random(in: 1...826))
+        guard let url = URL(string: (url + randomChracter)) else { return }
 
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "No error descripcion")
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                let person = try jsonDecoder.decode(Character.self, from: data)
+                print(person)
+                self.successAlert()
+            } catch {
+                print(error.localizedDescription)
+                self.failedAlert()
+            }
+        }.resume()
+        
+    }
+    
     private func successAlert() {
         DispatchQueue.main.async {
             let alert = UIAlertController(
