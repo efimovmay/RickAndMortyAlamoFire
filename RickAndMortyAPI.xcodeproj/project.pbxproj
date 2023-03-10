@@ -13,10 +13,11 @@
 		5B27B2C429BBACC800906613 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B27B2C229BBACC800906613 /* Main.storyboard */; };
 		5B27B2C629BBACC900906613 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B27B2C529BBACC900906613 /* Assets.xcassets */; };
 		5B27B2C929BBACC900906613 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B27B2C729BBACC900906613 /* LaunchScreen.storyboard */; };
+		5B27B2D629BBAE0F00906613 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27B2D529BBAE0F00906613 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B27B2B929BBACC800906613 /* RicAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RicAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B27B2B929BBACC800906613 /* RickAndMortyAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMortyAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B27B2BC29BBACC800906613 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B27B2BE29BBACC800906613 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B27B2C029BBACC800906613 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +25,7 @@
 		5B27B2C529BBACC900906613 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B27B2C829BBACC900906613 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B27B2CA29BBACC900906613 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B27B2D529BBAE0F00906613 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +42,7 @@
 		5B27B2B029BBACC800906613 = {
 			isa = PBXGroup;
 			children = (
-				5B27B2BB29BBACC800906613 /* RicAndMortyAPI */,
+				5B27B2BB29BBACC800906613 /* RickAndMortyAPI */,
 				5B27B2BA29BBACC800906613 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,31 +50,72 @@
 		5B27B2BA29BBACC800906613 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5B27B2B929BBACC800906613 /* RicAndMortyAPI.app */,
+				5B27B2B929BBACC800906613 /* RickAndMortyAPI.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5B27B2BB29BBACC800906613 /* RicAndMortyAPI */ = {
+		5B27B2BB29BBACC800906613 /* RickAndMortyAPI */ = {
 			isa = PBXGroup;
 			children = (
-				5B27B2BC29BBACC800906613 /* AppDelegate.swift */,
-				5B27B2BE29BBACC800906613 /* SceneDelegate.swift */,
-				5B27B2C029BBACC800906613 /* ViewController.swift */,
-				5B27B2C229BBACC800906613 /* Main.storyboard */,
+				5B27B2D029BBAD3D00906613 /* Models */,
+				5B27B2D129BBAD4500906613 /* Views */,
+				5B27B2D429BBADD300906613 /* ViewControllers */,
+				5B27B2D229BBAD5100906613 /* Storyboards */,
+				5B27B2D329BBAD8A00906613 /* App */,
 				5B27B2C529BBACC900906613 /* Assets.xcassets */,
-				5B27B2C729BBACC900906613 /* LaunchScreen.storyboard */,
 				5B27B2CA29BBACC900906613 /* Info.plist */,
 			);
-			path = RicAndMortyAPI;
+			path = RickAndMortyAPI;
+			sourceTree = "<group>";
+		};
+		5B27B2D029BBAD3D00906613 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B27B2D529BBAE0F00906613 /* Person.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5B27B2D129BBAD4500906613 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5B27B2D229BBAD5100906613 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5B27B2C229BBACC800906613 /* Main.storyboard */,
+				5B27B2C729BBACC900906613 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5B27B2D329BBAD8A00906613 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				5B27B2BE29BBACC800906613 /* SceneDelegate.swift */,
+				5B27B2BC29BBACC800906613 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5B27B2D429BBADD300906613 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B27B2C029BBACC800906613 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5B27B2B829BBACC800906613 /* RicAndMortyAPI */ = {
+		5B27B2B829BBACC800906613 /* RickAndMortyAPI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5B27B2CD29BBACC900906613 /* Build configuration list for PBXNativeTarget "RicAndMortyAPI" */;
+			buildConfigurationList = 5B27B2CD29BBACC900906613 /* Build configuration list for PBXNativeTarget "RickAndMortyAPI" */;
 			buildPhases = (
 				5B27B2B529BBACC800906613 /* Sources */,
 				5B27B2B629BBACC800906613 /* Frameworks */,
@@ -82,9 +125,9 @@
 			);
 			dependencies = (
 			);
-			name = RicAndMortyAPI;
+			name = RickAndMortyAPI;
 			productName = RicAndMortyAPI;
-			productReference = 5B27B2B929BBACC800906613 /* RicAndMortyAPI.app */;
+			productReference = 5B27B2B929BBACC800906613 /* RickAndMortyAPI.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +145,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5B27B2B429BBACC800906613 /* Build configuration list for PBXProject "RicAndMortyAPI" */;
+			buildConfigurationList = 5B27B2B429BBACC800906613 /* Build configuration list for PBXProject "RickAndMortyAPI" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +158,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5B27B2B829BBACC800906613 /* RicAndMortyAPI */,
+				5B27B2B829BBACC800906613 /* RickAndMortyAPI */,
 			);
 		};
 /* End PBXProject section */
@@ -140,6 +183,7 @@
 			files = (
 				5B27B2C129BBACC800906613 /* ViewController.swift in Sources */,
 				5B27B2BD29BBACC800906613 /* AppDelegate.swift in Sources */,
+				5B27B2D629BBAE0F00906613 /* Person.swift in Sources */,
 				5B27B2BF29BBACC800906613 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,22 +332,25 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RicAndMortyAPI/Info.plist;
+				INFOPLIST_FILE = RickAndMortyAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RicAndMortyAPI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RickAndMortyAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,29 +362,32 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RicAndMortyAPI/Info.plist;
+				INFOPLIST_FILE = RickAndMortyAPI/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.RicAndMortyAPI;
+				PRODUCT_BUNDLE_IDENTIFIER = com.RickAndMortyAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5B27B2B429BBACC800906613 /* Build configuration list for PBXProject "RicAndMortyAPI" */ = {
+		5B27B2B429BBACC800906613 /* Build configuration list for PBXProject "RickAndMortyAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B27B2CB29BBACC900906613 /* Debug */,
@@ -346,7 +396,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5B27B2CD29BBACC900906613 /* Build configuration list for PBXNativeTarget "RicAndMortyAPI" */ = {
+		5B27B2CD29BBACC900906613 /* Build configuration list for PBXNativeTarget "RickAndMortyAPI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5B27B2CE29BBACC900906613 /* Debug */,

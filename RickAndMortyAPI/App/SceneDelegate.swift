@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  RicAndMortyAPI
+//  RickAndMortyAPI
 //
 //  Created by Aleksey Efimov on 10.03.2023.
 //
