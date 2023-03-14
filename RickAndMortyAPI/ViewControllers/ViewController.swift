@@ -7,16 +7,33 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+enum StutusAlert {
+    case success
+    case failed
+    
+    var title: String {
+        switch self {
+        case .success: return "Success"
+        case .failed: return "Failed"
+        }
+    }
+    
+    var message: String {
+        switch self {
+        case .success: return  "You can see the results in the Debug aria"
+        case .failed: return "You can see error in the Debug aria"
+        }
+    }
+}
 
-    let url = "https://rickandmortyapi.com/api/character/"
+class ViewController: UIViewController {
      
     
     @IBAction func fetchData() {
-        let randomChracter = String(Int.random(in: 1...826))
-        guard let url = URL(string: (url + randomChracter)) else { return }
 
-        URLSession.shared.dataTask(with: url) { data, _, error in
+        guard let url = URL(string: link.randomCharacter.rawValue) else { return }
+
+        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
             guard let data = data else {
                 print(error?.localizedDescription ?? "No error descripcion")
                 return
@@ -27,41 +44,29 @@ class ViewController: UIViewController {
             do {
                 let person = try jsonDecoder.decode(Character.self, from: data)
                 print(person)
-                self.successAlert()
+                DispatchQueue.main.async {
+                    self?.showAlert(stutus: .success)
+                }
             } catch {
                 print(error.localizedDescription)
-                self.failedAlert()
+                DispatchQueue.main.async {
+                    self?.showAlert(stutus: .failed)
+                }
             }
         }.resume()
         
     }
     
-    private func successAlert() {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(
-                title: "Success",
-                message: "You can see the results in the Debug aria",
+    private func showAlert(stutus: StutusAlert) {
+        let alert = UIAlertController(
+                title: stutus.title,
+                message: stutus.message,
                 preferredStyle: .alert
             )
             
             let okAction = UIAlertAction(title: "OK", style: .default)
             alert.addAction(okAction)
-            self.present(alert, animated: true)
-        }
-    }
-    
-    private func failedAlert() {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(
-                title: "Failed",
-                message: "You can see error in the Debug aria",
-                preferredStyle: .alert
-            )
-            
-            let okAction = UIAlertAction(title: "OK", style: .default)
-            alert.addAction(okAction)
-            self.present(alert, animated: true)
-        }
+            present(alert, animated: true)
     }
 }
 
