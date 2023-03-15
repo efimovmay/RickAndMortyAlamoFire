@@ -17,6 +17,7 @@
 		5BABA9A529C1012E00257624 /* NetworkMansger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BABA9A429C1012E00257624 /* NetworkMansger.swift */; };
 		5BABA9A729C104A700257624 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BABA9A629C104A700257624 /* CharacterCollectionViewCell.swift */; };
 		5BABA9A929C10A2800257624 /* AllCharacterCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BABA9A829C10A2800257624 /* AllCharacterCollectionViewController.swift */; };
+		5BABA9AB29C25E1F00257624 /* InfoCharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BABA9AA29C25E1F00257624 /* InfoCharacterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5BABA9A429C1012E00257624 /* NetworkMansger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMansger.swift; sourceTree = "<group>"; };
 		5BABA9A629C104A700257624 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		5BABA9A829C10A2800257624 /* AllCharacterCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCharacterCollectionViewController.swift; sourceTree = "<group>"; };
+		5BABA9AA29C25E1F00257624 /* InfoCharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCharacterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				5B27B2C029BBACC800906613 /* ViewController.swift */,
 				5BABA9A629C104A700257624 /* CharacterCollectionViewCell.swift */,
 				5BABA9A829C10A2800257624 /* AllCharacterCollectionViewController.swift */,
+				5BABA9AA29C25E1F00257624 /* InfoCharacterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				5BABA9A929C10A2800257624 /* AllCharacterCollectionViewController.swift in Sources */,
 				5B27B2BD29BBACC800906613 /* AppDelegate.swift in Sources */,
 				5BABA9A529C1012E00257624 /* NetworkMansger.swift in Sources */,
+				5BABA9AB29C25E1F00257624 /* InfoCharacterViewController.swift in Sources */,
 				5B27B2D629BBAE0F00906613 /* Character.swift in Sources */,
 				5B27B2BF29BBACC800906613 /* SceneDelegate.swift in Sources */,
 				5BABA9A729C104A700257624 /* CharacterCollectionViewCell.swift in Sources */,

@@ -25,7 +25,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Все персонажи" cornerStyle="capsule"/>
                                 <connections>
                                     <action selector="fetchData" destination="BYZ-38-t0r" eventType="touchUpInside" id="wDr-I8-2mt"/>
-                                    <segue destination="mlk-0o-6qA" kind="show" identifier="showAllCharacter" id="U4L-UT-pCp"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="eIR-hx-rxb">
@@ -99,7 +98,7 @@
                                 <connections>
                                     <outlet property="characterImage" destination="aHQ-yn-ffa" id="Etu-Iq-BxN"/>
                                     <outlet property="nameLabel" destination="SRQ-Hc-93S" id="Q2y-UB-pRb"/>
-                                    <segue destination="ZFn-Hp-cpX" kind="show" id="KF6-iX-eG3"/>
+                                    <segue destination="ZFn-Hp-cpX" kind="show" identifier="infoCharacter" id="KF6-iX-eG3"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -114,16 +113,16 @@
             </objects>
             <point key="canvasLocation" x="2025.1908396946565" y="-32.394366197183103"/>
         </scene>
-        <!--View Controller-->
+        <!--Info Character View Controller-->
         <scene sceneID="hee-Ch-Hti">
             <objects>
-                <viewController id="ZFn-Hp-cpX" sceneMemberID="viewController">
+                <viewController id="ZFn-Hp-cpX" customClass="InfoCharacterViewController" customModule="RickAndMortyAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xug-X8-2PQ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="biX-xO-moH">
-                                <rect key="frame" x="71.666666666666686" y="133" width="250" height="250"/>
+                                <rect key="frame" x="71.666666666666686" y="89" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="8k0-38-bIQ"/>
                                     <constraint firstAttribute="width" constant="250" id="Kx4-Ri-1H9"/>

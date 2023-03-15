@@ -10,13 +10,22 @@ import UIKit
 
 class AllCharacterCollectionViewController: UICollectionViewController {
 
-    private var allCharacter = AllCharacter(info: nil, results: [])
+    private var allCharacter: AllCharacter!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "infoCharacter" {
+//            guard let infoCharacterVC = segue.destination as? InfoCharacterViewController else { return }
+//            infoCharacterVC.character = allCharacter.results[]
+//        }
 
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        <#code#>
+    }
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -76,7 +85,6 @@ extension AllCharacterCollectionViewController {
             case .success(let allCharacter):
                 self?.allCharacter = allCharacter
                 self?.collectionView.reloadData()
-                print(allCharacter.results)
             case .failure(let error):
                 print(error)
             }
