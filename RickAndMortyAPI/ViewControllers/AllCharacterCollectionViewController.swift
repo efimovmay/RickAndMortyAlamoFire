@@ -7,25 +7,29 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
 
 class AllCharacterCollectionViewController: UICollectionViewController {
 
+    private var allCharacter = AllCharacter(info: nil, results: [])
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        8
+        allCharacter.results?.count ?? 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? CharacterCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CharacterCollectionViewCell
         else { return UICollectionViewCell() }
-    
+        
+        let character = allCharacter.results![indexPath.row]
+        
+        cell.configur(whith: character)
     
         return cell
     }
@@ -61,4 +65,21 @@ class AllCharacterCollectionViewController: UICollectionViewController {
     }
     */
 
+}
+
+// MARK: - Networking
+
+extension AllCharacterCollectionViewController {
+    func fetchCharacter() {
+        NetworkManger.shared.fetch(dataType: AllCharacter.self, from: link.allCharacter.rawValue) { [weak self] result in
+            switch result {
+            case .success(let allCharacter):
+                self?.allCharacter = allCharacter
+                self?.collectionView.reloadData()
+                print(allCharacter.results)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

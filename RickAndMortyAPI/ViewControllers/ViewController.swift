@@ -28,32 +28,41 @@ enum StutusAlert {
 
 class ViewController: UIViewController {
      
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAllCharacter" {
+            guard let allCharacterVC = segue.destination as? AllCharacterCollectionViewController else { return }
+            allCharacterVC.fetchCharacter()
+        }
+    }
     
     @IBAction func fetchData() {
 
-        guard let url = URL(string: link.randomCharacter.rawValue) else { return }
-
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error descripcion")
-                return
-            }
-            
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                let person = try jsonDecoder.decode(Character.self, from: data)
-                print(person)
-                DispatchQueue.main.async {
-                    self?.showAlert(stutus: .success)
-                }
-            } catch {
-                print(error.localizedDescription)
-                DispatchQueue.main.async {
-                    self?.showAlert(stutus: .failed)
-                }
-            }
-        }.resume()
+        
+//        guard let url = URL(string: link.randomCharacter.rawValue) else { return }
+//
+//        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+//            guard let data = data else {
+//                print(error?.localizedDescription ?? "No error descripcion")
+//                return
+//            }
+//
+//            let jsonDecoder = JSONDecoder()
+//
+//            do {
+//                let person = try jsonDecoder.decode(Character.self, from: data)
+//                print(person)
+//                DispatchQueue.main.async {
+//                    self?.showAlert(stutus: .success)
+//                }
+//            } catch {
+//                print(error.localizedDescription)
+//                DispatchQueue.main.async {
+//                    self?.showAlert(stutus: .failed)
+//                }
+//            }
+//        }.resume()
         
     }
     
@@ -69,4 +78,5 @@ class ViewController: UIViewController {
             present(alert, animated: true)
     }
 }
+
 

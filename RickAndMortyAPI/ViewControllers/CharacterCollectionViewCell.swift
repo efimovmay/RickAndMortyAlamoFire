@@ -12,4 +12,16 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     @IBOutlet var characterImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     
+    func configur(whith character: Character) {
+        nameLabel.text = character.name
+        
+        NetworkManger.shared.fetchImage(from: character.image) { [weak self] result in
+            switch result {
+            case .success(let imageData):
+                self?.characterImage.image = UIImage(data: imageData)
+            case . failure(let error):
+                print(error)
+            }
+        }
+    }
 }
