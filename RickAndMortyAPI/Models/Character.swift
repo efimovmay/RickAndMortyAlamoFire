@@ -15,7 +15,7 @@ struct AllCharacter: Decodable {
 struct Info: Decodable {
     let count: Int?
     let pages: Int?
-    let netx: String?
+    let next: String?
     let prev: String?
 }
 struct Character: Decodable {
