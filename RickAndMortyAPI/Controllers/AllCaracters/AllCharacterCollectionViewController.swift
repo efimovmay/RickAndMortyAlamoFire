@@ -9,45 +9,39 @@ import UIKit
 
 
 class AllCharacterCollectionViewController: UICollectionViewController {
-
+    
     
     @IBOutlet var prevButton: UIBarButtonItem!
     @IBOutlet var nextButton: UIBarButtonItem!
     
     private var allCharacter = AllCharacter(info: nil, results: [])
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupButton()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "infoCharacter" {
-//            guard let infoCharacterVC = segue.destination as? InfoCharacterViewController else { return }
-//            infoCharacterVC.character = allCharacter.results
-//        }
+        guard let infoCharacterVC = segue.destination as? InfoCharacterViewController else { return }
+        guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
+        infoCharacterVC.character = allCharacter.results?[indexPath.row]
     }
     
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "infoCharacter", sender: nil)
-//
-//    }
-    
     // MARK: UICollectionViewDataSource
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         allCharacter.results?.count ?? 1
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CharacterCollectionViewCell
         else { return UICollectionViewCell() }
         
-        let character = allCharacter.results![indexPath.row]
+        guard let character = allCharacter.results?[indexPath.row] else { return cell }
         
         cell.configur(whith: character)
-    
+        
         return cell
     }
     
@@ -72,7 +66,6 @@ class AllCharacterCollectionViewController: UICollectionViewController {
             prevButton.isEnabled = true
         }
     }
-    
 }
 
 // MARK: - CollectionViewDeligateFlowLayout

@@ -67,7 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				5B27B2D029BBAD3D00906613 /* Models */,
-				5B27B2D429BBADD300906613 /* ViewControllers */,
+				5B27B2D429BBADD300906613 /* Controllers */,
+				5BABA9AC29C8DFD400257624 /* Services */,
 				5B27B2D229BBAD5100906613 /* Storyboards */,
 				5B27B2D329BBAD8A00906613 /* App */,
 				5B27B2C529BBACC900906613 /* Assets.xcassets */,
@@ -98,20 +99,35 @@
 			children = (
 				5B27B2BE29BBACC800906613 /* SceneDelegate.swift */,
 				5B27B2BC29BBACC800906613 /* AppDelegate.swift */,
-				5BABA9A429C1012E00257624 /* NetworkMansger.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
 		};
-		5B27B2D429BBADD300906613 /* ViewControllers */ = {
+		5B27B2D429BBADD300906613 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5BABA9AD29C8E00600257624 /* AllCaracters */,
 				5B27B2C029BBACC800906613 /* MenuViewController.swift */,
-				5BABA9A629C104A700257624 /* CharacterCollectionViewCell.swift */,
-				5BABA9A829C10A2800257624 /* AllCharacterCollectionViewController.swift */,
 				5BABA9AA29C25E1F00257624 /* InfoCharacterViewController.swift */,
 			);
-			path = ViewControllers;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		5BABA9AC29C8DFD400257624 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5BABA9A429C1012E00257624 /* NetworkMansger.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5BABA9AD29C8E00600257624 /* AllCaracters */ = {
+			isa = PBXGroup;
+			children = (
+				5BABA9A629C104A700257624 /* CharacterCollectionViewCell.swift */,
+				5BABA9A829C10A2800257624 /* AllCharacterCollectionViewController.swift */,
+			);
+			path = AllCaracters;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -19,7 +19,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
             switch result {
             case .success(let imageData):
                 self?.characterImage.image = UIImage(data: imageData)
-            case . failure(let error):
+            case .failure(let error):
                 print(error)
             }
         }
