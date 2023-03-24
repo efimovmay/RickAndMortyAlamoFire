@@ -9,7 +9,8 @@ import Foundation
 
 enum link: String{
     case allCharacter = "https://rickandmortyapi.com/api/character/"
-    case randomCharacter = "https://rickandmortyapi.com/api/character/50"
+    case location = "https://rickandmortyapi.com/api/location/"
+    case episode = "https://rickandmortyapi.com/api/episode/"
 }
 
 enum NetworkError: Error {
@@ -52,10 +53,7 @@ class NetworkManger {
                 return
             }
             do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                
-                let  type = try decoder.decode(T.self, from: data)
+                let type = try JSONDecoder().decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(type))
                 }

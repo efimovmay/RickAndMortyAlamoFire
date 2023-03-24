@@ -14,31 +14,32 @@ class AllCharacterCollectionViewController: UICollectionViewController {
     @IBOutlet var prevButton: UIBarButtonItem!
     @IBOutlet var nextButton: UIBarButtonItem!
     
-    private var allCharacter = AllCharacter(info: nil, results: [])
+    private var allCharacter: AllCharacter?
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupButton()
-    }
-    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    }
+//    override func viewWillAppear(_ animated: Bool) {
+//
+//    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let infoCharacterVC = segue.destination as? InfoCharacterViewController else { return }
         guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
-        infoCharacterVC.character = allCharacter.results?[indexPath.row]
+        infoCharacterVC.character = allCharacter?.results[indexPath.row]
     }
     
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        allCharacter.results?.count ?? 1
+        allCharacter?.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CharacterCollectionViewCell
         else { return UICollectionViewCell() }
         
-        guard let character = allCharacter.results?[indexPath.row] else { return cell }
+        guard let character = allCharacter?.results[indexPath.row] else { return UICollectionViewCell() }
         
         cell.configur(whith: character)
         
@@ -50,20 +51,11 @@ class AllCharacterCollectionViewController: UICollectionViewController {
     @IBAction func nextPageButtonPressed(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            guard let linkNextPages = allCharacter.info?.prev else { return }
+            guard let linkNextPages = allCharacter?.info.prev else { return }
             fetchCharacter(from: linkNextPages)
         default:
-            guard let linkNextPages = allCharacter.info?.next else { return }
+            guard let linkNextPages = allCharacter?.info.next else { return }
             fetchCharacter(from: linkNextPages)
-        }
-        setupButton()
-    }
-    
-    private func setupButton() {
-        if allCharacter.info?.prev == nil {
-            prevButton.isEnabled = false
-        } else {
-            prevButton.isEnabled = true
         }
     }
 }

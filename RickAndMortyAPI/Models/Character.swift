@@ -8,8 +8,8 @@
 import Foundation
 
 struct AllCharacter: Decodable {
-    let info: Info?
-    let results: [Character]?
+    let info: Info
+    let results: [Character]
 }
 
 struct Info: Decodable {
@@ -31,6 +31,15 @@ struct Character: Decodable {
     let episode: [String]?
     let url: String?
     let created: String?
+    
+    var description: String {
+        """
+        Status: \(status ?? "")
+        Species \(species ?? "")
+        Type: \(type ?? "")
+        Gender: \(gender ?? "na")
+        """
+    }
 }
 
 struct Origin: Decodable {

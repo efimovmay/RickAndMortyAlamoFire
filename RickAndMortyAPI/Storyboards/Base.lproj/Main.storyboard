@@ -27,6 +27,7 @@
                                         </constraints>
                                         <buttonConfiguration key="configuration" style="filled" title="Все персонажи" cornerStyle="capsule">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="baseBackgroundColor" red="0.066666666669999999" green="0.53725490200000003" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="mlk-0o-6qA" kind="show" identifier="showAllCharacter" id="Eog-zO-8uY"/>
@@ -39,7 +40,11 @@
                                         </constraints>
                                         <buttonConfiguration key="configuration" style="filled" title="Случайный персонаж" cornerStyle="capsule">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="baseBackgroundColor" red="0.066666666669999999" green="0.53725490200000003" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="randomCharacterButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="rLR-Cp-xSD"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -61,6 +66,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jKz-Gd-wzS"/>
+                    <connections>
+                        <segue destination="ZFn-Hp-cpX" kind="showDetail" identifier="showRandomCharacter" id="Tre-Xn-bPC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,56 +176,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="iPa-5k-LUw">
-                                <rect key="frame" x="20" y="416" width="353" height="102.33333333333337"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UF9-Mo-k5D">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Species" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttg-YO-J2v">
-                                        <rect key="frame" x="0.0" y="27.333333333333314" width="353" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tx5-Sj-TbK">
-                                        <rect key="frame" x="0.0" y="54.666666666666693" width="353" height="20.333333333333336"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yej-Su-QK3">
-                                        <rect key="frame" x="0.0" y="82" width="353" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UF9-Mo-k5D">
+                                <rect key="frame" x="16" y="416" width="361" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sh5-rO-z7t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iPa-5k-LUw" firstAttribute="leading" secondItem="Sh5-rO-z7t" secondAttribute="leading" constant="20" id="Cv3-or-Msa"/>
+                            <constraint firstItem="UF9-Mo-k5D" firstAttribute="top" secondItem="biX-xO-moH" secondAttribute="bottom" constant="42" id="DSd-dM-Pt3"/>
                             <constraint firstItem="ErT-1v-bGH" firstAttribute="centerX" secondItem="xug-X8-2PQ" secondAttribute="centerX" id="PLn-os-s6t"/>
+                            <constraint firstItem="Sh5-rO-z7t" firstAttribute="trailing" secondItem="UF9-Mo-k5D" secondAttribute="trailing" constant="16" id="ZDR-si-j9u"/>
                             <constraint firstItem="ErT-1v-bGH" firstAttribute="top" secondItem="Sh5-rO-z7t" secondAttribute="top" constant="25" id="aUd-8n-Cbt"/>
                             <constraint firstItem="biX-xO-moH" firstAttribute="top" secondItem="ErT-1v-bGH" secondAttribute="bottom" constant="16" id="bxh-ns-zq8"/>
-                            <constraint firstItem="Sh5-rO-z7t" firstAttribute="trailing" secondItem="iPa-5k-LUw" secondAttribute="trailing" constant="20" id="eR1-38-9i5"/>
+                            <constraint firstItem="UF9-Mo-k5D" firstAttribute="leading" secondItem="Sh5-rO-z7t" secondAttribute="leading" constant="16" id="fE5-PY-Jl6"/>
                             <constraint firstItem="biX-xO-moH" firstAttribute="centerX" secondItem="xug-X8-2PQ" secondAttribute="centerX" id="ggp-WG-KCf"/>
-                            <constraint firstItem="iPa-5k-LUw" firstAttribute="top" secondItem="biX-xO-moH" secondAttribute="bottom" constant="42" id="iiN-fq-aNY"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X9C-R3-Wc4"/>
                     <connections>
                         <outlet property="characterImage" destination="biX-xO-moH" id="Kfj-jF-wXE"/>
-                        <outlet property="genderLabel" destination="Yej-Su-QK3" id="WPI-DI-nel"/>
+                        <outlet property="infoLabel" destination="UF9-Mo-k5D" id="yGs-Pq-DXy"/>
                         <outlet property="nameLabel" destination="ErT-1v-bGH" id="ZDe-y6-OQl"/>
-                        <outlet property="speciesLabel" destination="ttg-YO-J2v" id="6SK-LX-2Jh"/>
-                        <outlet property="ststusLabel" destination="UF9-Mo-k5D" id="yGs-Pq-DXy"/>
-                        <outlet property="typeLabel" destination="Tx5-Sj-TbK" id="FOg-42-9rA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ua-0K-yAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -243,6 +225,9 @@
             <point key="canvasLocation" x="160" y="-32"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="KF6-iX-eG3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="logo" width="800" height="340"/>
         <systemColor name="systemBackgroundColor">
