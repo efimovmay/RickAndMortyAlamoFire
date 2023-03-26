@@ -33,11 +33,10 @@ class MenuViewController: UIViewController {
     }
     
     private func fetchRandomCharacter(from link: String) {
-        NetworkManger.shared.fetch(dataType: Character.self, from: link) { [weak self] result in
+        NetworkManger.shared.fetchCharacter(from: link) { [weak self] result in
             switch result {
             case .success(let character):
                 self?.randomCharacter = character
-                print(character)
             case .failure(let error):
                 print(error)
             }

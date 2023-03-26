@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum link: String{
     case allCharacter = "https://rickandmortyapi.com/api/character/"
@@ -40,26 +41,34 @@ class NetworkManger {
         }
     }
     
-    func fetch<T: Decodable>(dataType: T.Type, from url: String? , completion: @escaping(Result<T, NetworkError>) -> Void) {
-        guard let url = URL(string: url ?? "") else {
-            completion(.failure(.invalidURL))
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
-            guard let data = data else {
-                completion(.failure(.noData))
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            do {
-                let type = try JSONDecoder().decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(type))
+    func fetch(from url: String, completion: @escaping(Result<AllCharacter, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    guard let allCharacterData = value as? [String: Any] else { return }
+                    let allCharacter = AllCharacter(allCharacterData: allCharacterData)
+                    completion(.success(allCharacter))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-            } catch {
-                completion(.failure(.decodingError))
+        }
+    }
+    
+    func fetchCharacter(from url: String, completion: @escaping(Result<Character, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    guard let characterData = value as? [String: Any] else { return }
+                    let character = Character(characterData: characterData)
+                    completion(.success(character))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
-        }.resume()
+        
     }
 }
