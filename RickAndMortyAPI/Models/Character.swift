@@ -15,7 +15,7 @@ struct AllCharacter: Decodable {
         let infoData = value["info"] as? [String: Any] ?? [:]
         info = Info(infoData: infoData)
         let result = value["results"] as? [[String: Any]] ?? [[:]]
-        results = Character.getCharacter(from: result)
+        results = Character.getCharacters(from: result)
     }
     
     static func getAllCharacter(from value: Any) -> AllCharacter? {
@@ -78,7 +78,7 @@ struct Character: Decodable {
         created = characterData["created"] as? String
     }
     
-    static func getCharacter(from value: Any) -> [Character] {
+    static func getCharacters(from value: Any) -> [Character] {
         guard let characterData = value as? [[String: Any]] else { return []}
         return characterData.compactMap { Character(characterData: $0) }
     }
