@@ -8,12 +8,20 @@
 import Foundation
 
 struct AllCharacter: Decodable {
-    let info: Info?
-    let results: [Character]?
+    let info: Info
+    let results: [Character]
     
-    init(allCharacterData: [String: Any]) {
-        info = allCharacterData["info"] as? Info
-        results = allCharacterData["results"] as? [Character]
+    init(value: [String: Any]) {
+        let infoData = value["info"] as? [String: Any] ?? [:]
+        info = Info(infoData: infoData)
+        let result = value["results"] as? [[String: Any]] ?? [[:]]
+        results = Character.getCharacter(from: result)
+    }
+    
+    static func getAllCharacter(from value: Any) -> AllCharacter? {
+        guard let value = value as? [String: Any] else { return nil }
+        let allCharacter =  AllCharacter(value: value)
+        return allCharacter
     }
 }
 
@@ -60,8 +68,10 @@ struct Character: Decodable {
         species = characterData["species"] as? String
         type = characterData["type"] as? String
         gender = characterData["gender"] as? String
-        origin = characterData["origin"] as? Origin
-        location = characterData["location"] as? Location
+        let originDict = characterData["origin"] as? [String: Any] ?? [:]
+        origin = Origin(originData: originDict)
+        let locationDict = characterData["location"] as? [String: Any] ?? [:]
+        location = Location(locationData: locationDict)
         image = characterData["image"] as? String
         episode = characterData["episode"] as? [String]
         url = characterData["url"] as? String

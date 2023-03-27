@@ -48,7 +48,7 @@ class NetworkManger {
                 switch dataResponse.result {
                 case .success(let value):
                     guard let allCharacterData = value as? [String: Any] else { return }
-                    let allCharacter = AllCharacter(allCharacterData: allCharacterData)
+                    let allCharacter = AllCharacter(value: allCharacterData)
                     completion(.success(allCharacter))
                 case .failure(let error):
                     completion(.failure(error))

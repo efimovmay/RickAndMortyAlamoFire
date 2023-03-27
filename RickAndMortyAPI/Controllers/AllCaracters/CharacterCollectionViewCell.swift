@@ -12,9 +12,14 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     @IBOutlet var characterImage: UIImageView!
     @IBOutlet var nameLabel: UILabel!
     
+    override func prepareForReuse() {
+        characterImage.image = nil
+    }
+    
     func configur(whith character: Character) {
         nameLabel.text = character.name
         characterImage.layer.cornerRadius = 10
+        
         NetworkManger.shared.fetchImage(from: character.image) { [weak self] result in
             switch result {
             case .success(let imageData):

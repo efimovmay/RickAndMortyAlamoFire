@@ -20,20 +20,20 @@ class AllCharacterCollectionViewController: UICollectionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let infoCharacterVC = segue.destination as? InfoCharacterViewController else { return }
         guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
-        infoCharacterVC.character = allCharacter?.results?[indexPath.row]
+        infoCharacterVC.character = allCharacter?.results[indexPath.row]
     }
     
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        allCharacter?.results?.count ?? 0
+        allCharacter?.results.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CharacterCollectionViewCell
         else { return UICollectionViewCell() }
         
-        guard let character = allCharacter?.results?[indexPath.row] else { return UICollectionViewCell() }
+        guard let character = allCharacter?.results[indexPath.row] else { return UICollectionViewCell() }
         
         cell.configur(whith: character)
         
@@ -45,10 +45,10 @@ class AllCharacterCollectionViewController: UICollectionViewController {
     @IBAction func nextPageButtonPressed(_ sender: UIButton) {
         switch sender.tag {
         case 1:
-            guard let linkNextPages = allCharacter?.info?.prev else { return }
+            guard let linkNextPages = allCharacter?.info.prev else { return }
             fetchCharacter(from: linkNextPages)
         default:
-            guard let linkNextPages = allCharacter?.info?.next else { return }
+            guard let linkNextPages = allCharacter?.info.next else { return }
             fetchCharacter(from: linkNextPages)
         }
     }
